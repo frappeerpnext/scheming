@@ -1,0 +1,147 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:product_code",
+ "creation": "2023-04-14 11:55:51.540209",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "product_code",
+  "product_name",
+  "category",
+  "photo",
+  "cost",
+  "price",
+  "allow_scheme",
+  "scheme_tab",
+  "scheme_list"
+ ],
+ "fields": [
+  {
+   "fieldname": "product_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Product Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "product_name",
+   "fieldtype": "Data",
+   "label": "Product Name"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "Product Category"
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Photo"
+  },
+  {
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "label": "Cost"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "Price"
+  },
+  {
+   "default": "Yes",
+   "fieldname": "allow_scheme",
+   "fieldtype": "Select",
+   "label": "Allow Scheme",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "scheme_tab",
+   "fieldtype": "Tab Break",
+   "label": "Scheme"
+  },
+  {
+   "default": "Product Scheme List",
+   "fieldname": "scheme_list",
+   "fieldtype": "HTML",
+   "options": "<div id=\"scheme_list\"></div>"
+  }
+ ],
+ "image_field": "photo",
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "group": "Quote",
+   "link_doctype": "Quotation",
+   "link_fieldname": "product_code"
+  },
+  {
+   "group": "Sale",
+   "link_doctype": "Sale Order",
+   "link_fieldname": "product_code"
+  },
+  {
+   "group": "Sale",
+   "link_doctype": "Sale Invoice",
+   "link_fieldname": "product_code"
+  },
+  {
+   "group": "Scheme",
+   "link_doctype": "Scheme Product",
+   "link_fieldname": "product_code"
+  }
+ ],
+ "modified": "2023-04-14 17:29:45.611359",
+ "modified_by": "Administrator",
+ "module": "Sale Scheming",
+ "name": "Product",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
