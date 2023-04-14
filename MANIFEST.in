@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include scheming *.css
+recursive-include scheming *.csv
+recursive-include scheming *.html
+recursive-include scheming *.ico
+recursive-include scheming *.js
+recursive-include scheming *.json
+recursive-include scheming *.md
+recursive-include scheming *.png
+recursive-include scheming *.py
+recursive-include scheming *.svg
+recursive-include scheming *.txt
+recursive-exclude scheming *.pyc
