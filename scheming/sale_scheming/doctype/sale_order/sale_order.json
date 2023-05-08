@@ -8,17 +8,14 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "quotation_number",
   "naming_series",
   "customer",
   "phone_number",
   "district",
   "column_break_4",
   "posting_date",
-  "is_scheme",
   "start_date",
   "end_date",
-  "payment_term",
   "photo",
   "section_break_9",
   "products",
@@ -28,18 +25,39 @@
   "total_cost",
   "column_break_15",
   "total_amount",
-  "section_break_20",
-  "scheme_quantity",
-  "column_break_22",
-  "column_break_23",
-  "scheme_amount",
   "section_break_25",
   "total_profit",
   "section_break_17",
   "note",
   "amended_from",
-  "total_delivered_quantity",
-  "total_delivered_amount"
+  "forcasting_tab",
+  "forecast_order_products",
+  "section_break_29",
+  "forecast_quantity",
+  "column_break_31",
+  "forecast_cost",
+  "column_break_33",
+  "forecast_amount",
+  "column_break_35",
+  "forecast_profit",
+  "gift_tab",
+  "gift_percentage",
+  "column_break_39",
+  "max_gift_amount",
+  "section_break_41",
+  "gift",
+  "section_break_43",
+  "total_gift_quantity",
+  "column_break_45",
+  "total_gift_amount",
+  "column_break_47",
+  "gift_balance",
+  "term_and_condition_tab",
+  "term_and_condition",
+  "actual_quantity",
+  "actural_cost",
+  "actual_amount",
+  "actural_profit"
  ],
  "fields": [
   {
@@ -64,12 +82,6 @@
    "label": "Phone Number"
   },
   {
-   "fieldname": "quotation_number",
-   "fieldtype": "Link",
-   "label": "Quotation Number",
-   "options": "Quotation"
-  },
-  {
    "fieldname": "column_break_4",
    "fieldtype": "Column Break"
   },
@@ -79,14 +91,6 @@
    "in_list_view": 1,
    "label": "Create Date",
    "reqd": 1
-  },
-  {
-   "fetch_from": "customer.payment_term",
-   "fetch_if_empty": 1,
-   "fieldname": "payment_term",
-   "fieldtype": "Link",
-   "label": "Payment Term",
-   "options": "Payment Term"
   },
   {
    "fieldname": "photo",
@@ -153,7 +157,6 @@
    "read_only": 1
   },
   {
-   "depends_on": "eval:doc.is_scheme ==1",
    "fieldname": "end_date",
    "fieldtype": "Date",
    "label": "End Date"
@@ -167,30 +170,6 @@
    "options": "District"
   },
   {
-   "fieldname": "section_break_20",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "scheme_quantity",
-   "fieldtype": "Float",
-   "label": "SCHEME QUANTITY",
-   "read_only": 1
-  },
-  {
-   "fieldname": "column_break_22",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "scheme_amount",
-   "fieldtype": "Currency",
-   "label": "SCHEME AMOUNT",
-   "read_only": 1
-  },
-  {
-   "fieldname": "column_break_23",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "section_break_25",
    "fieldtype": "Section Break"
   },
@@ -201,29 +180,149 @@
    "read_only": 1
   },
   {
-   "depends_on": "eval:doc.is_scheme ==1",
    "fieldname": "start_date",
    "fieldtype": "Date",
    "label": "Start Date"
   },
   {
-   "default": "0",
-   "description": "Confirm SO to Scheming",
-   "fieldname": "is_scheme",
-   "fieldtype": "Check",
-   "label": "Is Scheme"
+   "fieldname": "term_and_condition_tab",
+   "fieldtype": "Tab Break",
+   "label": "Term and Condition"
   },
   {
-   "fieldname": "total_delivered_quantity",
+   "fieldname": "term_and_condition",
+   "fieldtype": "Table",
+   "label": "Term and Condition",
+   "options": "Sale Order Term and Condition"
+  },
+  {
+   "fieldname": "forcasting_tab",
+   "fieldtype": "Tab Break",
+   "label": "Forcasting"
+  },
+  {
+   "fieldname": "forecast_order_products",
+   "fieldtype": "Table",
+   "options": "Sale Order Revenue Forcast"
+  },
+  {
+   "fieldname": "section_break_29",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "forecast_quantity",
    "fieldtype": "Float",
-   "hidden": 1,
-   "label": "Total Delivered Quantity"
+   "label": "Forecast Quantity",
+   "read_only": 1
   },
   {
-   "fieldname": "total_delivered_amount",
+   "fieldname": "column_break_31",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "forecast_cost",
    "fieldtype": "Currency",
-   "hidden": 1,
-   "label": "Total Delivered Amount"
+   "label": "Forecast Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_33",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "forecast_amount",
+   "fieldtype": "Currency",
+   "label": "Forecast Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_35",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "forecast_profit",
+   "fieldtype": "Currency",
+   "label": "Forecast Profit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gift_tab",
+   "fieldtype": "Tab Break",
+   "label": "Gift"
+  },
+  {
+   "fieldname": "gift_percentage",
+   "fieldtype": "Percent",
+   "label": "Gift Percentage"
+  },
+  {
+   "fieldname": "column_break_39",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "max_gift_amount",
+   "fieldtype": "Currency",
+   "label": "Max Gift Amount"
+  },
+  {
+   "fieldname": "section_break_41",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "gift",
+   "fieldtype": "Table",
+   "label": "Sale Order Gift",
+   "options": "Sale Order Gift"
+  },
+  {
+   "fieldname": "section_break_43",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_gift_quantity",
+   "fieldtype": "Float",
+   "label": "Total Gift Quantity",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_45",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_gift_amount",
+   "fieldtype": "Currency",
+   "label": "Total Gift Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_47",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gift_balance",
+   "fieldtype": "Currency",
+   "label": "Gift Balance",
+   "read_only": 1
+  },
+  {
+   "fieldname": "actual_quantity",
+   "fieldtype": "Float",
+   "label": "Actual Quantity"
+  },
+  {
+   "fieldname": "actural_cost",
+   "fieldtype": "Currency",
+   "label": "Actural Cost"
+  },
+  {
+   "fieldname": "actual_amount",
+   "fieldtype": "Currency",
+   "label": "Actual Amount"
+  },
+  {
+   "fieldname": "actural_profit",
+   "fieldtype": "Currency",
+   "label": "Actural Profit"
   }
  ],
  "image_field": "photo",
@@ -237,7 +336,7 @@
   }
  ],
  "make_attachments_public": 1,
- "modified": "2023-04-14 15:31:43.037921",
+ "modified": "2023-05-07 19:29:43.861746",
  "modified_by": "Administrator",
  "module": "Sale Scheming",
  "name": "Sale Order",

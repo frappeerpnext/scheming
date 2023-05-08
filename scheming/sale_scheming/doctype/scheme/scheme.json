@@ -8,11 +8,29 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "scheme_type",
   "scheme_name",
   "start_date",
   "end_date",
+  "condition_section",
+  "term_and_condition",
   "products_tab",
-  "product_list"
+  "product_list",
+  "total_cost",
+  "total_price",
+  "total_profit",
+  "gift_value_tab",
+  "gift_percent_tag",
+  "column_break_14",
+  "max_gift_amount",
+  "section_break_16",
+  "gift",
+  "section_break_18",
+  "total_gift_quantity",
+  "column_break_20",
+  "total_gift_amount",
+  "column_break_22",
+  "gift_balance"
  ],
  "fields": [
   {
@@ -46,6 +64,105 @@
    "fieldname": "product_list",
    "fieldtype": "HTML",
    "options": "<div id=\"product_list\"></div>"
+  },
+  {
+   "default": "Long Term Scheme",
+   "fieldname": "scheme_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Scheme Type",
+   "options": "Long Term Scheme\nFlat Cost Scheme\nRanking Cost Scheme\nFlat Payment Cost Scheme"
+  },
+  {
+   "fieldname": "condition_section",
+   "fieldtype": "Section Break",
+   "label": "Term & Condittion"
+  },
+  {
+   "fieldname": "term_and_condition",
+   "fieldtype": "Table",
+   "options": "Scheme Term and Condition"
+  },
+  {
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "hidden": 1,
+   "label": "Total Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_price",
+   "fieldtype": "Currency",
+   "hidden": 1,
+   "label": "Total Price",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_profit",
+   "fieldtype": "Currency",
+   "hidden": 1,
+   "label": "Total Profit"
+  },
+  {
+   "fieldname": "gift_value_tab",
+   "fieldtype": "Tab Break",
+   "label": "Gift Value"
+  },
+  {
+   "fieldname": "gift_percent_tag",
+   "fieldtype": "Percent",
+   "label": "Gift Percent Tag"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "max_gift_amount",
+   "fieldtype": "Currency",
+   "label": "Max Gift Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_16",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "gift",
+   "fieldtype": "Table",
+   "label": "Gift",
+   "options": "Scheme Gift"
+  },
+  {
+   "fieldname": "section_break_18",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_gift_quantity",
+   "fieldtype": "Float",
+   "label": "Total Gift Quantity",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_gift_amount",
+   "fieldtype": "Currency",
+   "label": "Total Gift Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_22",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gift_balance",
+   "fieldtype": "Currency",
+   "label": "Gift Balance",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -56,7 +173,7 @@
    "link_fieldname": "scheme_name"
   }
  ],
- "modified": "2023-04-14 17:29:32.510957",
+ "modified": "2023-05-07 13:58:39.829996",
  "modified_by": "Administrator",
  "module": "Sale Scheming",
  "name": "Scheme",

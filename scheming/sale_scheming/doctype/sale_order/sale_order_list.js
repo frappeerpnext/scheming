@@ -7,9 +7,7 @@ frappe.listview_settings['Sale Order'] = {
     get_indicator(doc) {
         
         if(doc.docstatus==1){
-            if(doc.is_scheme==1){ 
-                return [__("Scheme"), "green"];
-            } 
+            
         }
         
     },
