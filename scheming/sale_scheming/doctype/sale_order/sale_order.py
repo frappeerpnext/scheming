@@ -10,18 +10,16 @@ class SaleOrder(Document):
 		for d in self.products:
 			d.total_cost = (d.quantity or 1) * (d.cost or 0)
 			d.total_amount = (d.quantity or 1) * (d.price or 0)
-		
-
-
 
 		self.total_quantity = Enumerable(self.products).sum(lambda x: x.quantity or 0)
 		self.total_cost =  Enumerable(self.products).sum(lambda x: x.total_cost or 0)
 		self.total_amount =  Enumerable(self.products).sum(lambda x: x.total_amount or 0)
-
+		
 		validate_forcase_cost(self)
 
 		self.max_gift_amount = (self.forecast_profit or 0) * (self.gift_percentage or 0) /100
-		self.gift_balance = self.max_gift_amount or 0  - self.total_gift_amount or 0
+		self.gift_balance = (self.max_gift_amount or 0)  - (self.total_gift_amount or 0)
+
 		
 def validate_forcase_cost(self):
 	for d in self.forecast_order_products:
@@ -33,7 +31,6 @@ def validate_forcase_cost(self):
 		d.total_cost = (d.quantity or 1) * (d.cost or 0)
 		d.total_amount = d.quantity * (d.price or 0)
 		d.profit = d.total_amount - d.total_cost
-
 	self.forecast_quantity=  Enumerable(self.forecast_order_products).sum(lambda x: x.quantity or 0)
 	self.forecast_cost=  Enumerable(self.forecast_order_products).sum(lambda x: x.total_cost or 0)
 	self.forecast_amount=  Enumerable(self.forecast_order_products).sum(lambda x: x.total_amount or 0)
@@ -46,10 +43,8 @@ def get_product_price(customer,date, product,quantity):
 	data = frappe.db.sql(sql, as_dict=1)
 	cost = 0.0
 	price = 0.0
- 
-	 
+
 	if data:
-		
 		cost = data[0]["cost"]
 		price = data[0]["price"]
 	
